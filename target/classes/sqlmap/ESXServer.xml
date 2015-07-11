@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="vmachine">
+	<typeAlias alias="ESXServer" type="com.upyoo.vmware.model.ESXServer" />
+	
+	
+	<statement id="insertesxserver" >
+	insert into esxserver(uuid, cpufrequency ,clusterId, name,last_update_time
+	) values(#uuid#, #cpufrequency#, #clusterId#,#name#
+	)
+	</statement>
+	<insert id="bachinsertesxserver" parameterClass="java.util.ArrayList">
+insert into esxserver(uuid, cpufrequency ,clusterId, name,unit,last_update_time
+	) values
+        <iterate conjunction=",">
+        (#value[].uuid#,#value[].cpufrequency#,#value[].clusterId#,#value[].name#,#value[].unit#,#value[].last_update_time#)
+        </iterate>
+    </insert>
+
+   <statement id="checkesxserver" resultClass="ESXServer">
+	     select uuid from esxserver where  1=1
+   </statement>
+
+
+</sqlMap>

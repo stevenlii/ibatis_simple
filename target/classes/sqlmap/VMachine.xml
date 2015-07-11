@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="vmachine">
+	<typeAlias alias="VMachine" type="com.upyoo.vmware.model.VMachine" />
+	
+
+	
+	<statement id="insertvmachine" >
+	insert into vmachine(uuid, hostid , clusterId , name ,
+	mac ,
+	portgroup , vmPath , vmID ,
+	model , power , health ,
+	version , vmIP ,
+	cpucount , storageCommitted , storageUnCommitted, storageTotal,memorySizeMB
+	) values(#uuid#, #hostid#, #clusterId#,#name#,
+	#mac#,
+	#portgroup#, #vmPath#, #vmID#,
+	#model#, #power#, #health#,
+	#version#, #vmIP#,
+	#cpucount#, #storageCommitted#,#storageUnCommitted#,#storageTotal#, #memorySizeMB#,
+
+	)
+	<!-- ON DUPLICATE KEY UPDATE
+	hostid=#hostid#,clusterId=#clusterId# , name=#name# ,
+	mac=#mac# ,
+	portgroup=#portgroup# , vmPath=#vmPath# , vmID=#vmID# ,
+	model=#model# , power=#power# , health=#health# ,
+	version=#version# , vmIP=#vmIP# ,
+	cpucount=#cpucount# , storageCommitted=#storageCommitted# , storageUnCommitted=#storageUnCommitted#, storageTotal=#storageTotal#,memorySizeMB=#memorySizeMB# -->
+	</statement>
+
+
+   <statement id="checkvmachine" resultClass="VMachine">
+	     select id from vcenterviewmodel where  1=1
+   </statement>
+
+
+</sqlMap>

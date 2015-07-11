@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="datastore">
+	<typeAlias alias="Datastore" type="com.upyoo.vmware.model.Datastore" />
+	
+	<statement id="insertdatastore" >
+	insert into datastore(uuid , clusterId , name ,
+	status ,
+	capacity , freeSpace , maxFileSize ,
+	url , type , version ,
+	vmfsUUID,store_used_cap
+	) values(#uuid#, #clusterId#,#name#,
+	#status#,
+	#capacity#, #freeSpace#, #maxFileSize#,
+	#url#, #type#, #version#,
+	#vmfsUUID#,#store_used_cap#
+	)
+	
+	</statement>
+	<insert id="bachinsertdatastore" parameterClass="java.util.ArrayList">
+insert into datastore(uuid , clusterId , name ,
+	status ,
+	capacity , freeSpace , maxFileSize ,
+	url , type , version ,
+	vmfsUUID,store_used_cap,last_update_time
+	) values
+        <iterate conjunction=",">
+        (#value[].uuid#,#value[].clusterId#,#value[].name#,#value[].status#,#value[].capacity#,#value[].freeSpace#,
+        #value[].maxFileSize#,#value[].url#,#value[].type#,#value[].version#,#value[].vmfsUUID#,#value[].store_used_cap#,#value[].last_update_time#)
+        </iterate>
+    </insert>
+
+   <statement id="checkdatastore" resultClass="Datastore">
+	     select uuid from datastore where  1=1
+   </statement>
+
+
+</sqlMap>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="vcenterviewmodel">
+	<typeAlias alias="VCenterViewModel"
+		type="com.upyoo.vmware.viewandmodel.VCenterViewModel" />
+
+
+
+	<statement id="insertvcenterviewmodel">
+		insert into
+		vctener(uuid,id, description_name, cluster_count,host_count,
+		vm_count,
+		cpu_core_count, vcpu_core_count, cpu_used_scale,
+		cpu_portion_scale,
+		memory_cap, vmemory_cap,
+		memory_used_cap, memory_used_scale,
+		memory_portion_scale, store_cap, store_used_cap,
+		store_sas_cap,
+		store_sas_used_cap, store_sas_used_scale,
+		store_sata_cap,
+		store_sata_used_cap,
+		store_sata_used_scale, vstore_cap,
+		store_portion_scale,last_update_time
+
+
+		) values(#uuid#,#id#,
+		#description_name#,#cluster_count#,#host_count#,
+		#vm_count#,
+		#cpu_core_count#, #vcpu_core_count#, #cpu_used_scale#,
+		#cpu_portion_scale#, #memory_cap#, #vmemory_cap#,
+		#memory_used_cap#,
+		#memory_used_scale#,
+		#memory_portion_scale#, #store_cap#,#store_used_cap#,
+		#store_sas_cap#, #store_sas_used_cap#, #store_sas_used_scale#,
+		#store_sata_cap#, #store_sata_used_cap#,
+		#store_sata_used_scale#,
+		#vstore_cap#, #store_portion_scale#,#last_update_time#
+
+		)
+		
+	</statement>
+
+	<statement id="insertvcenterviewmodel1">
+		insert into
+		vctener(uuid,id, description_name, cluster_count
+
+		) values(#uuid#,#id#,
+		#description_name#,#cluster_count#
+		)
+		
+	</statement>
+
+	<statement id="checkFromVCenterViewModel" resultClass="VCenterViewModel">
+		select * from vctener where 1=1
+	</statement>
+
+
+</sqlMap>

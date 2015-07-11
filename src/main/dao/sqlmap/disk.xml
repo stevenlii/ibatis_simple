@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="disk">
+	<typeAlias alias="disk" type="com.upyoo.vmware.model.Disk" />
+	<statement id="insertdisk" >
+	insert into disk(uuid, path , diskName , addresses ,
+	iScsiName
+	
+	) values(#uuid#, #path#, #diskName#,#addresses#,
+	#iScsiName#
+
+	)
+	</statement>
+
+
+   <statement id="checkdisk" resultClass="disk">
+	     select uuid from disk where  1=1
+   </statement>
+
+
+</sqlMap>

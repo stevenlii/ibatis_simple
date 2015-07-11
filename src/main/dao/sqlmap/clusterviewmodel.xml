@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="clusterviewmodel">
+	<typeAlias alias="ClusterViewModel"
+		type="com.upyoo.vmware.viewandmodel.ClusterViewModel" />
+
+	<statement id="insertClusterViewModel">
+		insert into cluster(uuid,id, description_name, vcenter_id, host_count,
+		vm_count,
+		cpu_core_count, vcpu_core_count, cpu_used_scale,
+		cpu_portion_scale, memory_cap, vmemory_cap,
+		memory_used_cap, memory_used_scale,
+		memory_portion_scale, store_cap, store_used_cap,
+		store_sas_cap, store_sas_used_cap, store_sas_used_scale,
+		store_sata_cap, store_sata_used_cap,
+		store_sata_used_scale, vstore_cap, store_portion_scale,last_update_time
+
+
+		) values(#uuid#,#id#, #description_name#, #vcenter_id#,#host_count#,
+		#vm_count#,
+		#cpu_core_count#, #vcpu_core_count#, #cpu_used_scale#,
+		#cpu_portion_scale#, #memory_cap#, #vmemory_cap#,
+		#memory_used_cap#, #memory_used_scale#,
+		#memory_portion_scale#, #store_cap#, #store_used_cap#,
+		#store_sas_cap#, #store_sas_used_cap#, #store_sas_used_scale#,
+		#store_sata_cap#, #store_sata_used_cap#,
+		#store_sata_used_scale#, #vstore_cap#, #store_portion_scale#,#last_update_time#
+
+		)
+	</statement>
+	<statement id="checkFromCluster" resultClass="ClusterViewModel">
+		select uuid from cluster where 1=1
+
+	</statement>
+
+
+</sqlMap>
